@@ -52,6 +52,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'pechorin/any-jump.vim' "Vim code inspection for definiton
 Plug 'rrethy/vim-illuminate' "Highlight other uses of the current word
 Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion
+Plug 'goerz/jupytext.vim' "open Jupyter notebooks in vim
 
 " Plugins for Writing
 Plug 'junegunn/goyo.vim' "deletes distractions
@@ -110,8 +111,12 @@ let g:rainbow_active = 1 " enable raibow brackets across all filetypes
 let g:pencil#wrapModeDefault = 'soft' " set default wrap mode to soft
 
 "OceanicNext bold and italic
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1
+
+"Jupyter 
+let g:jupytext_fmt = 'py:percent' " specifies what format to convert ipynb too 
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Filetype Initialisation
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
