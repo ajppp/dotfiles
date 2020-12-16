@@ -53,6 +53,7 @@ Plug 'pechorin/any-jump.vim' "Vim code inspection for definiton
 Plug 'rrethy/vim-illuminate' "Highlight other uses of the current word
 Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion
 Plug 'goerz/jupytext.vim' "open Jupyter notebooks in vim
+Plug 'jalvesaq/Nvim-R', {'branch': 'master'} "practically turn Vim into an R IDE
 
 " Plugins for Writing
 Plug 'junegunn/goyo.vim' "deletes distractions
