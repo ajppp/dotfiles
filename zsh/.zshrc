@@ -84,6 +84,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/autojump/autojump.sh
 
 # User configuration
 
