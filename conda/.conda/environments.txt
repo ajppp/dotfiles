@@ -1,0 +1,3 @@
+/home/jeth/anaconda3
+/home/jeth/Downloads/ultrasound/envs
+/home/jeth/Documents/cloud-ureca/envs

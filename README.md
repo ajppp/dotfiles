@@ -14,6 +14,9 @@ $ cd ~/dotfiles
 $ stow vim
 $ stow zsh
 ```
+### nvim
+
+For the nvim directory, since it is not located in the home directory, copy it from this directory to `~/.config`.
 
 ## How it Works
 
