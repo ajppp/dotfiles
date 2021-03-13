@@ -6,8 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jeth/.oh-my-zsh"
 
@@ -112,6 +111,7 @@ source /usr/share/autojump/autojump.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
   alias cp='cp -r'
+  alias pdflatex='pdflatex --shell-escape'
   alias l='exa --color=auto'
   alias la='exa -a'
   alias ll='exa -lah'
@@ -121,7 +121,10 @@ source /usr/share/autojump/autojump.sh
   alias scp='scp -r'
   alias open='xdg-open'
   alias vim='nvim'
+  alias vi='nvim'
   alias trash='trash-put'
+  alias zathura='zathura --fork'
+  alias android-studio='~/Documents/android-studio/bin/studio.sh'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -141,3 +144,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/jeth/.sdkman"
+[[ -s "/home/jeth/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jeth/.sdkman/bin/sdkman-init.sh"

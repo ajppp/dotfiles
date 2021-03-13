@@ -17,21 +17,25 @@ Plug 'junegunn/seoul256.vim' "seoul256
 Plug 'arcticicestudio/nord-vim' "nord
 Plug 'jacoborus/tender.vim' "tender
 Plug 'trusktr/seti.vim' "seti
+Plug 'ayu-theme/ayu-vim' "ayu 
 
 " Plugins for Developing"
 Plug 'tpope/vim-sensible' "sensible options for vim
 Plug 'wincent/terminus' "enhanced terminal integration for vim
 Plug 'dense-analysis/ale' "syntax checking & semantic errors
-Plug 'preservim/nerdtree' "file system explorer
+"Plug 'preservim/nerdtree' "file system explorer
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do':'python3 -m chadtree deps'} "nerdtree alternative
 Plug 'frazrepo/vim-rainbow' "rainbow brackets
 Plug 'preservim/nerdcommenter' "comment function
 "Plug 'itchyny/lightline.vim' "statusline
 Plug 'vim-airline/vim-airline' "cooler status line
+"Plug 'bagrat/vim-buffet' "tabline and buffers
 Plug 'vim-airline/vim-airline-themes' "themes for airline
 Plug 'tpope/vim-fugitive' "git plugin for vim
 Plug 'jiangmiao/auto-pairs' "auto pairing for brackets
 Plug 'mileszs/ack.vim' "search tool
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy file finder
+Plug 'Yggdroot/indentLine' "marks indentation lines
 Plug 'sheerun/vim-polyglot' "language packs for vim
 Plug 'tpope/vim-surround' "edits surroundings(brackets, quotes) in pairs
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} "multiple cursors
@@ -45,6 +49,9 @@ Plug 'rrethy/vim-illuminate' "Highlight other uses of the current word
 Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion
 Plug 'goerz/jupytext.vim' "open Jupyter notebooks in vim
 Plug 'jalvesaq/Nvim-R', {'branch': 'master'} "practically turn Vim into an R IDE
+Plug 'puremourning/vimspector' "graphical debugger for vim
+"Plug 'codota/tabnine-vim' " helper
+
 
 " Plugins for Writing
 Plug 'junegunn/goyo.vim' "deletes distractions
@@ -54,8 +61,8 @@ Plug 'reedes/vim-pencil' "sensible options for writing
 Plug 'reedes/vim-wordy' "uncover word usage problems in writing
 Plug 'reedes/vim-litecorrect' "autocorrect
 Plug 'reedes/vim-lexical' "spellchecker + thesaurus
-Plug 'lervag/vimtex', {'tag': 'v1.6'} "vim plugin for LaTeX
-Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " conceal for LaTeX
+Plug 'lervag/vimtex' "vim plugin for LaTeX
+Plug 'ryanoasis/vim-devicons' "icons in vim
 call plug#end() " Initialize plugin system
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,18 +84,11 @@ function! s:check_back_space() abort
 endfunction
 
 " NERDTree Configuration
-nmap <C-m> :NERDTreeToggle<CR> 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+"nmap <C-m> :NERDTreeToggle<CR> 
 " use control-m to toggle nerd tree
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-
-" Close Vim if NERDTree is the last tab
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+nnoremap <C-m> :CHADopen<CR> 
+" use control-m to toggle chad tree
 
 " TagList Configuration
 nmap <C-t> :TlistToggle<CR> 
@@ -100,11 +100,11 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " use control-p to toggle fuzzy finder
 
-" Molokai colorscheme Configuration
-let g:rehash256 = 1
+let g:vimspector_enable_mappings = 'HUMAN'
 
 " airline theme
 let g:airline_theme = 'tender'
+let g:airline_powerline_fonts = 1
 
 " Vim Rainbow Configuration
 let g:rainbow_active = 1 " enable raibow brackets across all filetypes
@@ -112,17 +112,15 @@ let g:rainbow_active = 1 " enable raibow brackets across all filetypes
 "vim pencil config
 let g:pencil#wrapModeDefault='soft' " set default wrap mode to soft
 
-
 "Jupyter 
 let g:jupytext_fmt='py:percent' " specifies what format to convert ipynb too 
 
 "vimtex
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_mode=0
-let g:vimtex_compiler_progname = 'nvr'
-set conceallevel=2
-let g:tex_conceal='abdgm'
+"let g:tex_flavor = 'latex'
+"let g:vimtex_view_method = 'zathura'
+let g:vimtex_syntax_conceal_default = 0
+let g:tex_conceal = ''
+"let g:vimtex_compiler_progname = 'nvr'
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Filetype Initialisation
@@ -133,6 +131,7 @@ augroup pencil "set up pencil when opening text files
     autocmd FileType markdown,mkd,text,tex call pencil#init()
                                    \ | call litecorrect#init()
                                    \ | call lexical#init()
+                                   \ | let g:indentLine_enabled = 0
 augroup END
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Basic Vim Configuration
@@ -167,7 +166,8 @@ set tabstop=4 " number of visual spaces per TAB
 " Color
 set termguicolors
 set background=dark
-colorscheme nord
+let ayucolor = "mirage"
+colorscheme ayu
 
 "Miscellaneous
 "set spell spelllang=en_us
@@ -175,5 +175,6 @@ set clipboard+=unnamedplus "copy stuff to system clipboard
 let mapleader=" " "map leader key to space bar
 set scrolloff=10
 set encoding=utf8
-hi clear Conceal
 
+"Markdown
+set conceallevel=0
