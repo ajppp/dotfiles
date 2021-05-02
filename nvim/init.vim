@@ -18,6 +18,7 @@ Plug 'arcticicestudio/nord-vim' "nord
 Plug 'jacoborus/tender.vim' "tender
 Plug 'trusktr/seti.vim' "seti
 Plug 'ayu-theme/ayu-vim' "ayu 
+Plug 'kaicataldo/material.vim', { 'branch': 'main' } "material
 
 " Plugins for Developing"
 Plug 'tpope/vim-sensible' "sensible options for vim
@@ -103,7 +104,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:vimspector_enable_mappings = 'HUMAN'
 
 " airline theme
-let g:airline_theme = 'tender'
+let g:airline_theme = 'material'
 let g:airline_powerline_fonts = 1
 
 " Vim Rainbow Configuration
@@ -116,11 +117,18 @@ let g:pencil#wrapModeDefault='soft' " set default wrap mode to soft
 let g:jupytext_fmt='py:percent' " specifies what format to convert ipynb too 
 
 "vimtex
-"let g:tex_flavor = 'latex'
-"let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
 let g:vimtex_syntax_conceal_default = 0
 let g:tex_conceal = ''
-"let g:vimtex_compiler_progname = 'nvr'
+let g:Tex_IgnoreLevel = 7
+let g:vimtex_compiler_latexmk = {
+            \ 'options' : [
+            \ '-shell-escape ',
+            \ '-pdf ',
+            \ '-quiet ',
+            \],
+            \}
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Filetype Initialisation
@@ -166,8 +174,9 @@ set tabstop=4 " number of visual spaces per TAB
 " Color
 set termguicolors
 set background=dark
-let ayucolor = "mirage"
-colorscheme ayu
+let g:material_theme_style = 'palenight'
+let g:material_terminal_italics = 1
+colorscheme material
 
 "Miscellaneous
 "set spell spelllang=en_us
