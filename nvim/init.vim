@@ -18,19 +18,20 @@ Plug 'arcticicestudio/nord-vim' "nord
 Plug 'jacoborus/tender.vim' "tender
 Plug 'trusktr/seti.vim' "seti
 Plug 'ayu-theme/ayu-vim' "ayu 
-Plug 'kaicataldo/material.vim', { 'branch': 'main' } "material
+Plug 'joshdick/onedark.vim' "onedark
+Plug 'ghifarit53/tokyonight-vim' "tokyonight 
 
 " Plugins for Developing"
 Plug 'tpope/vim-sensible' "sensible options for vim
 Plug 'wincent/terminus' "enhanced terminal integration for vim
 Plug 'dense-analysis/ale' "syntax checking & semantic errors
+Plug 'honza/vim-snippets'
 "Plug 'preservim/nerdtree' "file system explorer
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do':'python3 -m chadtree deps'} "nerdtree alternative
 Plug 'frazrepo/vim-rainbow' "rainbow brackets
 Plug 'preservim/nerdcommenter' "comment function
 "Plug 'itchyny/lightline.vim' "statusline
 Plug 'vim-airline/vim-airline' "cooler status line
-"Plug 'bagrat/vim-buffet' "tabline and buffers
 Plug 'vim-airline/vim-airline-themes' "themes for airline
 Plug 'tpope/vim-fugitive' "git plugin for vim
 Plug 'jiangmiao/auto-pairs' "auto pairing for brackets
@@ -103,8 +104,12 @@ let g:ctrlp_cmd = 'CtrlP'
 
 let g:vimspector_enable_mappings = 'HUMAN'
 
+" Coc-Snippets config
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
 " airline theme
-let g:airline_theme = 'material'
+let g:airline_theme = "tokyonight"
 let g:airline_powerline_fonts = 1
 
 " Vim Rainbow Configuration
@@ -173,10 +178,9 @@ set tabstop=4 " number of visual spaces per TAB
 
 " Color
 set termguicolors
-set background=dark
-let g:material_theme_style = 'palenight'
-let g:material_terminal_italics = 1
-colorscheme material
+syntax on
+colorscheme tokyonight
+let g:tokyonight_enable_italic=1
 
 "Miscellaneous
 "set spell spelllang=en_us

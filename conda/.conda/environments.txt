@@ -1,3 +1,0 @@
-/home/jeth/anaconda3
-/home/jeth/Downloads/ultrasound/envs
-/home/jeth/anaconda3/envs/cloud_plugin
