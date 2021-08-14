@@ -77,7 +77,9 @@ export ZSH="/home/jeth/.oh-my-zsh"
 plugins=(
     colored-man-pages
     docker
+    conda-zsh-completion
     git
+    github
     zsh-syntax-highlighting
     bgnotify
     colorize
@@ -90,6 +92,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/autojump/autojump.sh
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -128,9 +131,11 @@ source /usr/share/autojump/autojump.sh
   alias open='xdg-open'
   alias vim='nvim'
   alias vi='nvim'
-  alias trash='trash-put'
   alias zathura='zathura --fork'
-  alias android-studio='~/Documents/android-studio/bin/studio.sh'
+  alias cat='batcat'
+
+  export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=' -R'
 
   export VISUAL=nvim;
   export EDITOR=nvim;
@@ -155,7 +160,9 @@ unset __conda_setup
 
 eval "$(starship init zsh)"
 
+eval $(thefuck --alias)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/jeth/.sdkman"
 [[ -s "/home/jeth/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jeth/.sdkman/bin/sdkman-init.sh"
+
 
