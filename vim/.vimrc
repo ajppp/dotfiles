@@ -88,8 +88,6 @@ endfunction
 " NERDTree Configuration
 nmap <C-m> :NERDTreeToggle<CR> 
 " use control-m to toggle nerd tree
-autocmd vimenter * NERDTree
-" use NERDTree on every tab
 
 " TagList Configuration
 nmap <C-t> :TlistToggle<CR> 
