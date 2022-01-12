@@ -170,7 +170,7 @@ set expandtab " tabs are spaces
 set tabstop=4 " number of visual spaces per TAB
 
 " Color
-set termguicolors
+"set termguicolors "not always available so uncomment it when it is available
 set background=dark
 colorscheme seti
 
