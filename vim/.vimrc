@@ -51,7 +51,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } "make vim look better for certain file types
 Plug 'pechorin/any-jump.vim' "Vim code inspection for definiton
 Plug 'rrethy/vim-illuminate' "Highlight other uses of the current word
-Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion
+"Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion - needs a certain version of Vim so uncomment this line only if your Vim version supports it
 Plug 'goerz/jupytext.vim' "open Jupyter notebooks in vim
 Plug 'jalvesaq/Nvim-R', {'branch': 'master'} "practically turn Vim into an R IDE
 
