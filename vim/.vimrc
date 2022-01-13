@@ -43,13 +43,13 @@ Plug 'mileszs/ack.vim' "search tool
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy file finder
 Plug 'sheerun/vim-polyglot' "language packs for vim
 Plug 'tpope/vim-surround' "edits surroundings(brackets, quotes) in pairs
-Plug 'mg979/vim-visual-multi', {'branch': 'master'} "multiple cursors
+"Plug 'mg979/vim-visual-multi', {'branch': 'master'} "multiple cursors
 Plug 'airblade/vim-gitgutter' "shows changes from git
-Plug 'yegappan/taglist' "shows code structure 
+"Plug 'yegappan/taglist' "shows code structure 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } "make vim look better for certain file types
-Plug 'pechorin/any-jump.vim' "Vim code inspection for definiton
+"Plug 'pechorin/any-jump.vim' "Vim code inspection for definiton
 Plug 'rrethy/vim-illuminate' "Highlight other uses of the current word
 "Plug 'neoclide/coc.nvim',{'branch': 'release'} "Code completion - needs a certain version of Vim so uncomment this line only if your Vim version supports it
 Plug 'goerz/jupytext.vim' "open Jupyter notebooks in vim
