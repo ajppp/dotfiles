@@ -132,13 +132,15 @@ zplug "chrissicool/zsh-256color"
 zplug "olets/zsh-abbr"
 zplug "Tarrasch/zsh-bd"
 zplug "timothyrowan/betterbrew-zsh-plugin"
-zplug "yuhonas/zsh-ansimotd"
+zplug "oldratlee/hacker-quotes"
 zplug "zshzoo/cd-ls"
 zplug "bartboy011/cd-reminder"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "z-shell/zsh-diff-so-fancy", as:command, use:"bin/"
+zplug "laggardkernel/zsh-iterm2"
 zplug "wting/autojump"
+zplug "robertzk/send.zsh"
 zplug "zpm-zsh/clipboard"
 zplug "zpm-zsh/colorize"
 
@@ -150,8 +152,10 @@ if ! zplug check --verbose; then
     fi
 fi
 
+
 # Then, source plugins and add commands to $PATH
 zplug load
+# this might be the most dangerous thing ive done
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
