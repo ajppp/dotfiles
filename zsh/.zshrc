@@ -4,6 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Conda default env
+export AUTOSWITCH_DEFAULT_CONDAENV="base"
+
+ZSH_DISABLE_COMPFIX="false"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -112,6 +116,9 @@ alias ll="exa -lah"
 alias ls="exa --color=auto"
 alias grep="grep -n --color"
 alias cat="bat"
+alias conda install="mamba install"
+alias pip='noglob pip'
+alias t='todo.sh'
 
 # load starship
 eval "$(starship init zsh)"
@@ -121,12 +128,13 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # Plugins
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions"
+zplug "plugins/vi-mode", from:oh-my-zsh
+#zplug "zsh-users/zsh-autosuggestions"
 zplug "clvv/fasd"
-zplug "b4b4r07/enhancd"
 zplug "junegunn/fzf"
 zplug "chrissicool/zsh-256color"
 zplug "olets/zsh-abbr"
@@ -136,13 +144,25 @@ zplug "oldratlee/hacker-quotes"
 zplug "zshzoo/cd-ls"
 zplug "bartboy011/cd-reminder"
 zplug "zdharma-continuum/fast-syntax-highlighting"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "kjhaber/tm.zsh"
 zplug "z-shell/zsh-diff-so-fancy", as:command, use:"bin/"
 zplug "laggardkernel/zsh-iterm2"
-zplug "wting/autojump"
+#zplug "wting/autojump" downloaded using brew
 zplug "robertzk/send.zsh"
+zplug "davidtong/vsc.plugin.zsh"
 zplug "zpm-zsh/clipboard"
 zplug "zpm-zsh/colorize"
+zplug "bckim92/zsh-autoswitch-conda"
+
+# Plugins for completion
+zplug "zsh-users/zsh-completions"
+zplug "esc/conda-zsh-completion"
+zplug "sudosubin/zsh-github-cli"
+zplug "srijanshetty/zsh-pandoc-completion"
+zplug "srijanshetty/zsh-pip-completion"
+zplug "sunlei/zsh-ssh"
+zplug "ctil/zargparse"
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -155,7 +175,9 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
-# this might be the most dangerous thing ive done
+
+# autojump setup
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -176,3 +198,4 @@ if [ -f "/Users/jeth/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
