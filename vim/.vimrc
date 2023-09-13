@@ -34,6 +34,8 @@ Plug 'dense-analysis/ale' "syntax checking & semantic errors
 Plug 'preservim/nerdtree' "file system explorer
 Plug 'frazrepo/vim-rainbow' "rainbow brackets
 Plug 'preservim/nerdcommenter' "comment function
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "Plug 'itchyny/lightline.vim' "statusline
 Plug 'vim-airline/vim-airline' "cooler status line
 Plug 'vim-airline/vim-airline-themes' "themes for airline
@@ -43,6 +45,7 @@ Plug 'mileszs/ack.vim' "search tool
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy file finder
 Plug 'sheerun/vim-polyglot' "language packs for vim
 Plug 'tpope/vim-surround' "edits surroundings(brackets, quotes) in pairs
+Plug 'MortenStabenau/matlab-vim'
 "Plug 'mg979/vim-visual-multi', {'branch': 'master'} "multiple cursors
 Plug 'airblade/vim-gitgutter' "shows changes from git
 "Plug 'yegappan/taglist' "shows code structure 
@@ -64,6 +67,7 @@ Plug 'reedes/vim-wordy' "uncover word usage problems in writing
 Plug 'reedes/vim-litecorrect' "autocorrect
 Plug 'reedes/vim-lexical' "spellchecker + thesaurus
 Plug 'lervag/vimtex' " vim plugin for LaTeX
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end() " Initialize plugin system
 
@@ -164,20 +168,22 @@ set cursorline "highlight current line
 set laststatus=2 "show the status line permanently
 
 " Set Indentation
-set shiftwidth=4 "2 space characters for indentation
-set softtabstop=4 " number of spaces in tab when editing
-set expandtab " tabs are spaces
-set tabstop=4 " number of visual spaces per TAB
+set shiftwidth=4 smarttab
+set expandtab
+set tabstop=8 softtabstop=0
 
 " Color
-"set termguicolors "not always available so uncomment it when it is available
+set termguicolors "not always available so uncomment it when it is available
 set background=dark
-colorscheme seti
+colorscheme dracula
 
 "Miscellaneous
 "set spell spelllang=en_us
-set clipboard+=unnamedplus "copy stuff to system clipboard
+set clipboard+=unnamed "copy stuff to system clipboard
 let mapleader=" " "map leader key to space bar
-set scrolloff=10
+set scrolloff=25
 set encoding=utf8
+
+autocmd vimenter *.md Goyo
+autocmd vimenter *.md Limelight
 
