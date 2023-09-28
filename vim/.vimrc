@@ -26,6 +26,7 @@ Plug 'junegunn/seoul256.vim' "seoul256
 Plug 'arcticicestudio/nord-vim' "nord
 Plug 'jacoborus/tender.vim' "tender
 Plug 'trusktr/seti.vim' "seti
+Plug 'ajmwagar/vim-deus' "vim-deus
 
 " Plugins for Developing"
 Plug 'tpope/vim-sensible' "sensible options for vim
@@ -119,9 +120,11 @@ set expandtab
 set tabstop=8 softtabstop=0
 
 " Color
+set t_Co=256
 set termguicolors "not always available so uncomment it when it is available
 set background=dark
-colorscheme dracula
+colorscheme deus
+let g:deus_termcolors=256
 
 "Miscellaneous
 "set spell spelllang=en_us
@@ -158,7 +161,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:rehash256 = 1
 
 " airline theme
-let g:airline_theme = 'tender'
+let g:airline_theme = 'deus'
 
 " Vim Rainbow Configuration
 let g:rainbow_active = 1 " enable raibow brackets across all filetypes
